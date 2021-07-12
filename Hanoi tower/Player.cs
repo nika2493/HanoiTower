@@ -14,13 +14,13 @@ namespace HanoiTower
         public void MoveLeft()
         {
             Position--;
-            if (Position < 1) Position = Options.CollumCount;
+            if (Position < 1) Position = Options.ColumnCount;
         }
 
         public void MoveRight()
         {
             Position++;
-            if (Position > Options.CollumCount) Position = 1;
+            if (Position > Options.ColumnCount) Position = 1;
         }
 
         public int PutRing()

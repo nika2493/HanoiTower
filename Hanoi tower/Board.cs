@@ -4,13 +4,13 @@ namespace HanoiTower
 {
     public class Board : IDrawable
     {
-        public Board(int lengthOfCollum, int collumCount = 3)
+        public Board(int lengthOfColumn, int columnCount = 3)
         {
-            BoardMatrix = new int[lengthOfCollum, collumCount];
+            BoardMatrix = new int[lengthOfColumn, columnCount];
 
-            for (var i = 0; i < collumCount; i++)
+            for (var i = 0; i < columnCount; i++)
             {
-                for (var j = 0; j < lengthOfCollum; j++)
+                for (var j = 0; j < lengthOfColumn; j++)
                 {
                     if (i == 0) BoardMatrix[j, i] = j + 1;
                     else
@@ -24,7 +24,7 @@ namespace HanoiTower
             for (var i = 0; i < Options.Difficulty; i++)
             {
                 string line = "| ";
-                for (var j = 0; j < Options.CollumCount; j++)
+                for (var j = 0; j < Options.ColumnCount; j++)
                 {
                     var count = (BoardMatrix[i, j] * 2 + 1);
                     var tempM1 = new string('=', count);
@@ -35,44 +35,44 @@ namespace HanoiTower
             }
         }
 
-        public int TakeTopRing(int collumNumber)
+        public int TakeTopRing(int columnNumber)
         {
             var topElement = 0;
             for (var i = 0; i < Options.Difficulty; i++)
             {
-                if (BoardMatrix[i, collumNumber - 1] == 0) continue;
-                topElement = BoardMatrix[i, collumNumber - 1];
-                BoardMatrix[i, collumNumber - 1] = 0;
+                if (BoardMatrix[i, columnNumber - 1] == 0) continue;
+                topElement = BoardMatrix[i, columnNumber - 1];
+                BoardMatrix[i, columnNumber - 1] = 0;
                 return topElement;
             }
             return topElement;
         }
 
-        public int TopRing(int collumNumber)
+        public int TopRing(int columnNumber)
         {
             var topElement = 0;
             for (var i = 0; i < Options.Difficulty; i++)
             {
-                if (BoardMatrix[i, collumNumber - 1] == 0) continue;
-                topElement = BoardMatrix[i, collumNumber - 1];
+                if (BoardMatrix[i, columnNumber - 1] == 0) continue;
+                topElement = BoardMatrix[i, columnNumber - 1];
                 return topElement;
             }
             return topElement;
         }
 
-        public void PutTopRing(int ring, int collumNumber)
+        public void PutTopRing(int ring, int columnNumber)
         {
             for (var i = 1; i < Options.Difficulty; i++)
             {
-                if (BoardMatrix[i, collumNumber - 1] != 0)
+                if (BoardMatrix[i, columnNumber - 1] != 0)
                 {
-                    BoardMatrix[i - 1, collumNumber - 1] = ring;
+                    BoardMatrix[i - 1, columnNumber - 1] = ring;
                     break;
                 }
 
                 if (i == Options.Difficulty - 1)
                 {
-                    BoardMatrix[Options.Difficulty - 1, collumNumber - 1] = ring;
+                    BoardMatrix[Options.Difficulty - 1, columnNumber - 1] = ring;
                 }
             }
         }

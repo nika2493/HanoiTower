@@ -8,7 +8,7 @@ namespace HanoiTower
 
     {
         public static int Difficulty { get; private set; }
-        public static int CollumCount = 4;
+        public static int ColumnCount = 3;
 
         public static int SetDifficulty(string error = "")
         {

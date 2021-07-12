@@ -8,8 +8,9 @@ namespace HanoiTower
         private static void Main()
         {
             Options.SetDifficulty();
+            Options.ColumnCount = 4;
             var player = new Player();
-            var board = new Board(Difficulty, CollumCount);
+            var board = new Board(Difficulty, ColumnCount);
             DrawGameState.Draw(player, board);
 
             while (true)
